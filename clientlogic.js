@@ -79,16 +79,3 @@ function checkKeyUp(e) {
 	document.getElementById("buttonSteer"+str).classList.remove("activate");
 	setDir(str,0);
 }
-
-var wheel = new Wheel("https://raw.githubusercontent.com/thepikafan/ArduBot/master/wheel/wheel.png",360,373,
-	{container:document.getElementById("wheelContainer"),
-		onSteer:function(e) {
-		if(e.angle < -40)
-			setDir("Left" ,1);
-		if(e.angle > +40)
-			setDir("Right",1);
-		if(e.angle >= -40 && e.angle <= +40) {
-			setDir("Left" ,0);
-			setDir("Right",0);
-		}
-	},radius:128});
