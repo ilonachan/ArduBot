@@ -4,7 +4,7 @@ h1 {
 html {
 	font-family: Rockwell;
 	text-align: center;
-	background-image: url("images/epic_background.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/epic_background.png");
 }
 button {
 border:none;
@@ -13,45 +13,45 @@ background-color:transparent;
 button.Up {
 	height:80px;
 	width:80px;
-	background-image: url("images/up.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/up.png");
 	}
 button.Left {
-	height:80px;
-	width:120px;
-	background-image: url("images/left_2.png");
+	height:76px;
+	width:95px;
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/left.png");
 	}
 button.Right {
-	height:80px;
-	width:120px;
-	background-image: url("images/right_2.png");
+	height:76px;
+	width:95px;
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/right.png");
 	}
 button.Down {
 	height:80px;
 	width:80px;
-	background-image: url("images/down.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/down.png");
 	}
 button.Up:active {
-	background-image: url("images/up_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/up_hover.png");
 }
 button.Left:active {
-	background-image: url("images/left_2_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/left_hover.png");
 }
 button.Right:active {
-	background-image: url("images/right_2_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/right_hover.png");
 }
 button.Down:active {
-	background-image: url("images/down_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/down_hover.png");
 }
 
 button.Up.activate {
-	background-image: url("images/up_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/up_hover.png");
 }
 button.Left.activate {
-	background-image: url("images/left_2_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/left_hover.png");
 }
 button.Right.activate {
-	background-image: url("images/right_2_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/right_hover.png");
 }
 button.Down.activate {
-	background-image: url("images/down_hover.png");
+	background-image: url("https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/down_hover.png");
 }
