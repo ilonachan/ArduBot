@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Arduino Control Panel</title>
+		<link rel="stylesheet" href="https://dl.dropboxusercontent.com/s/3s6vovdw3mr7n3q/arduino.css">
+		<link rel="stylesheet" href="wheel/style.css">
+		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+		<script src="wheel/vector.js"></script>
+		<script src="wheel/control.js"></script>
+		<script src="https://dl.dropboxusercontent.com/s/tj8ixsnzyfgg9km/clientlogic.js"></script>
+	</head>
+	<body>
+		<h1>Arduino Cont<a title = "Der ger&auml;t wird nie m&uuml;de, der Ger&auml;t schl&auml;ft nie ein,
+		der Ger&auml;t ist noch vor der Chef im Gesch&auml;ft und schneidet das D&ouml;nerfleisch 
+		schweissfrei">r</a>ol Panel</h1>
+		<i><h2>Von hier aus k&ouml;nnen sie unseren Roboter steuern (hoffentlich irgendwann mal)</h2></i><hr>
+		<button id="buttonSteerUp" class="Up" title="Vorw&auml;rts"
+		href="#" onmousedown="setDir('Up',1);" onmouseup="setDir('Up',0);"></button><br>
+		<button id="buttonSteerLeft" class="Left" title="Abbiegen Links"
+		href="#" onmousedown="setDir('Left',1);" onmouseup="setDir('Left',0);"></button>
+		<button id="buttonSteerRight" class="Right" title="Abbiegen Rechts"
+		href="#" onmousedown="setDir('Right',1);" onmouseup="setDir('Right',0);"></button><br>
+		<button id="buttonSteerDown" class="Down" title="R&uuml;ckw&auml;rts"
+		href="#" onmousedown="setDir('Down',1);" onmouseup="setDir('Down',0);"></button><br>
+		<br>
+		<!-- <p id="idStatus">&nbsp;</p> -->
+		<br>
+		<div id="wheelContainer"></div>
+		<br><br><br>
+		<input id="inputDisplayText" title="The Arduino displays this"></input>
+		<button onclick="submitDisplayText();">Submit</button>
+	</body>
+</html>
