@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<title>Arduino Control Panel</title>
-		<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/thepikafan/ArduBot/master/arduino.css">
-		<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/thepikafan/ArduBot/master/wheel/style.css">
-		<link rel="shortcut icon" href="https://raw.githubusercontent.com/thepikafan/ArduBot/master/images/icon.png" type="image/x-icon" />
-		<script type="text/javascript" src="https://raw.githubusercontent.com/thepikafan/ArduBot/master/wheel/vector.js"></script>
-		<script type="text/javascript" src="https://raw.githubusercontent.com/thepikafan/ArduBot/master/wheel/wheel.js"></script>
-		<script type="text/javascript" src="https://raw.githubusercontent.com/thepikafan/ArduBot/master/clientlogic.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/thepikafan/ArduBot/master/arduino.css">
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/thepikafan/ArduBot/master/wheel/style.css">
+		<link rel="shortcut icon" href="https://rawgit.com/thepikafan/ArduBot/master/images/icon.png" type="image/x-icon" />
+		<script type="text/javascript" src="https://rawgit.com/thepikafan/ArduBot/master/wheel/vector.js"></script>
+		<script type="text/javascript" src="https://rawgit.com/thepikafan/ArduBot/master/wheel/wheel.js"></script>
+		<script type="text/javascript" src="https://rawgit.com/thepikafan/ArduBot/master/clientlogic.js"></script>
 	</head>
 	<body>
 		<h1>Arduino Cont<a title = "Der ger&auml;t wird nie m&uuml;de, der Ger&auml;t schl&auml;ft nie ein,
@@ -16,32 +16,38 @@
 		<i><h2>Von hier aus k&ouml;nnen sie unseren Roboter steuern (hoffentlich irgendwann mal)</h2></i><hr>
 		<button id="buttonSteerUp" class="Up" title="Vorw&auml;rts"
 		href="#" onmousedown="setDir('Up',1);" onmouseup="setDir('Up',0);"></button><br>
-		<button id="buttonSteerLeft" class="Left" title="Abbiegen Links"
-		href="#" onmousedown="setDir('Left',1);" onmouseup="setDir('Left',0);"></button>
-		<button id="buttonSteerRight" class="Right" title="Abbiegen Rechts"
-		href="#" onmousedown="setDir('Right',1);" onmouseup="setDir('Right',0);"></button><br>
+		<!-- <button id="buttonSteerLeft" class="Left" title="Abbiegen Links" -->
+		<!-- href="#" onmousedown="setDir('Left',1);" onmouseup="setDir('Left',0);"></button> -->
+		<!-- <button id="buttonSteerRight" class="Right" title="Abbiegen Rechts" -->
+		<!-- href="#" onmousedown="setDir('Right',1);" onmouseup="setDir('Right',0);"></button><br> -->
 		<button id="buttonSteerDown" class="Down" title="R&uuml;ckw&auml;rts"
 		href="#" onmousedown="setDir('Down',1);" onmouseup="setDir('Down',0);"></button><br>
 		<br>
-		<!-- <p id="idStatus">&nbsp;</p> -->
-		<br>
-		<div id="wheelContainer"></div>
+		<br><br>
+		<div style="text-align: center">
+		<div id="wheelContainer" class="wheel" style="display: inline-block"></div>
+		</div>
 		<script type="text/javascript">
 			const wheel = new Wheel("https://raw.githubusercontent.com/thepikafan/ArduBot/master/wheel/wheel.png",360,373,
 				{container:document.getElementById("wheelContainer"),
 					onSteer:function(e) {
-					if(e.angle < -40)
+					if(e.angle < -40) {
 						setDir("Left" ,1);
-					if(e.angle > +40)
+						setDir("Right",0);
+					}
+					if(e.angle > +40) {
+						setDir("Left" ,0);
 						setDir("Right",1);
+					}
 					if(e.angle >= -40 && e.angle <= +40) {
 						setDir("Left" ,0);
 						setDir("Right",0);
 					}
-				},radius:128});
+				},radius:183});
 		</script>
 		<br><br><br>
 		<input id="inputDisplayText" title="The Arduino displays this"></input>
 		<button onclick="submitDisplayText();">Submit</button>
+		<br><br>
 	</body>
 </html>
