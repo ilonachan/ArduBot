@@ -1,4 +1,4 @@
-const DEBUG = 0;
+const DEBUG = false;
 var DEBUG_CANVAS, DEBUG_CTX;
 if (DEBUG) {
 	DEBUG_CANVAS = document.getElementById("debug-canvas");
