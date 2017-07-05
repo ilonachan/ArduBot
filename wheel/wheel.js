@@ -85,8 +85,8 @@ function Wheel(imageSource, axisX, axisY, options) {
 	};
 
 	this.update = function () {
-		this.canvas.style.marginLeft = -this.canvas.clientWidth / 2 + 'px';
-		this.canvas.style.marginTop = -this.canvas.clientHeight / 2 + 'px';
+		//this.canvas.style.marginLeft = -this.canvas.clientWidth / 2 + 'px';
+		//this.canvas.style.marginTop = -this.canvas.clientHeight / 2 + 'px';
 		const rect = this.canvas.getBoundingClientRect();
 		this.rotationPoint.x = rect.left + this.canvas.clientWidth / 2;
 		this.rotationPoint.y = rect.top + this.canvas.clientHeight / 2;
