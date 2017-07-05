@@ -54,6 +54,12 @@ function checkKeyDown(e) {
 	switch(e.keyCode) {
 		case 38: str="Up"; break;
 		case 40: str="Down"; break;
+		case 37: 
+			wheel.lerpTo(-wheel.maxSteerAngle);
+			return;
+		case 38:
+			wheel.lerpTo(wheel.maxSteerAngle);
+			return;
 		default:
 			return;
 	}
@@ -69,6 +75,10 @@ function checkKeyUp(e) {
 	switch(e.keyCode) {
 		case 38: str="Up"; break;
 		case 40: str="Down"; break;
+		case 37: 
+		case 38:
+			wheel.lerpTo(0);
+			return;
 		default:
 			return;
 	}
