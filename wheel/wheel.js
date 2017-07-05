@@ -33,10 +33,10 @@ function lerp(value1, value2, amount) {
  *                   If not supplied, the whole page can be clicked/tapped to steer.
  */
 function Wheel(imageSource, axisX, axisY, options) {
-	const self = this;
+	var self = this;
 	
-	const container = options.container ? options.container : document.createElement('div');
-	const canvas = document.createElement('canvas');
+	this.container = options.container ? options.container : document.createElement('div');
+	this.canvas = document.createElement('canvas');
 	container.className = canvas.className = 'wheel';
 	container.ondragstart = function () { return false; };
 
@@ -46,7 +46,7 @@ function Wheel(imageSource, axisX, axisY, options) {
 	canvas.width = axisX * 2;
 
 	// Draw the wheel image to the canvas
-	const image = new Image();
+	this.image = new Image();
 	image.src = imageSource;
 	image.onload = function () {
 		const context = canvas.getContext('2d');
@@ -113,8 +113,8 @@ function Wheel(imageSource, axisX, axisY, options) {
 		this.desiredAngle = 0;
 		this.angle = this.currentAngle;
 
-		const self = this;
-		const interval = setInterval(function () {
+		var self = this;
+		var interval = setInterval(function () {
 			const angle = lerp(self.angle, self.angle < 180 ? 0 : 360, 0.2);
 			if (self.dragging) {
 				clearInterval(interval);
@@ -145,9 +145,9 @@ function Wheel(imageSource, axisX, axisY, options) {
 			return;
 		e.preventDefault();
 
-		const current = new Vector(e.pageX, e.pageY);
-		const originToCurrent = Vector.sub(current, this.rotationPoint);
-		const angle = degrees(radiansPositive(Vector.angle(this.originToBegin, originToCurrent)));
+		var current = new Vector(e.pageX, e.pageY);
+		var originToCurrent = Vector.sub(current, this.rotationPoint);
+		var angle = degrees(radiansPositive(Vector.angle(this.originToBegin, originToCurrent)));
 
 		if (angle > this.maxSteerAngle && angle < 360 - this.maxSteerAngle)
 			return;
