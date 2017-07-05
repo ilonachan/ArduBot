@@ -1,6 +1,6 @@
 const DEBUG = false;
 var DEBUG_CANVAS, DEBUG_CTX;
-if (DEBUG) {
+if (false) {
 	DEBUG_CANVAS = document.getElementById("debug-canvas");
 	DEBUG_CTX = DEBUG_CANVAS.getContext('2d');
 	DEBUG_CANVAS.width  = window.innerWidth;
@@ -34,7 +34,6 @@ function lerp(value1, value2, amount) {
  */
 function Wheel(imageSource, axisX, axisY, options) {
 	const self = this;
-	console.dir(self);
 	
 	const container = options.container ? options.container : document.createElement('div');
 	const canvas = document.createElement('canvas');
@@ -136,7 +135,7 @@ function Wheel(imageSource, axisX, axisY, options) {
 
 		this.dragging = false;
 
-		if (DEBUG) {
+		if (false) {
 			DEBUG_CTX.clearRect(0, 0, DEBUG_CANVAS.width, DEBUG_CANVAS.height);
 		}
 	};
@@ -154,7 +153,7 @@ function Wheel(imageSource, axisX, axisY, options) {
 			return;
 		this.steer(angle);
 
-		if (DEBUG) {
+		if (false) {
 			DEBUG_CTX.clearRect(0, 0, DEBUG_CANVAS.width, DEBUG_CANVAS.height);
 			DEBUG_CTX.beginPath();
 			DEBUG_CTX.moveTo(this.rotationPoint.x, this.rotationPoint.y);
