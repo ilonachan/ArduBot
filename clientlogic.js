@@ -1,6 +1,34 @@
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+
+    // Check if the XMLHttpRequest object has a "withCredentials" property.
+    // "withCredentials" only exists on XMLHTTPRequest2 objects.
+    xhr.open(method, url, true);
+
+  } else if (typeof XDomainRequest != "undefined") {
+
+    // Otherwise, check if XDomainRequest.
+    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+
+  } else {
+
+    // Otherwise, CORS is not supported by the browser.
+    xhr = null;
+
+  }
+  return xhr;
+}
+
 function anfordern(mode) {
-	var req = new XMLHttpRequest();
-	req.open("get", "request.php?comm="+mode, true);
+	var req = createCorsRequest('GET',"http://"+document.getElementById("arduIP").value+"/request.php?comm="+mode);
+	if(!xhr) {
+		console.err("CORS is not supported in your browser. That means this page can send no requests to "
+			    + "the robot as it is not to be found on the same domain. (Find out why at "
+			    + "https://en.wikipedia.org/wiki/Same-origin_policy")
+	}
 	req.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
 	// console.log("Sending request: 'request.php?comm="+mode+"'");
 	// if(mode == "refresh") {
