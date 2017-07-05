@@ -53,7 +53,7 @@ function Wheel(imageSource, axisX, axisY, options) {
 		context.drawImage(this, 0, 0, this.width, this.height);
 	};
 
-	this.container.appendChild(canvas);
+	this.container.appendChild(this.canvas);
 	if (!options.container)
 		document.body.appendChild(this.container);
 
@@ -67,7 +67,6 @@ function Wheel(imageSource, axisX, axisY, options) {
 	this.dragPoint = new Vector(); // Point where the user started dragging.
 	this.rotationPoint = new Vector(); // Point of rotation in the document.
 	this.originToBegin = null;
-	this.canvas = canvas;
 	
 	
 	this.maxSteerAngle = 90;
