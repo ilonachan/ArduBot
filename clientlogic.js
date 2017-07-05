@@ -54,8 +54,6 @@ function checkKeyDown(e) {
 	switch(e.keyCode) {
 		case 38: str="Up"; break;
 		case 40: str="Down"; break;
-		case 37: str="Left"; break;
-		case 39: str="Right"; break;
 		default:
 			return;
 	}
@@ -71,8 +69,6 @@ function checkKeyUp(e) {
 	switch(e.keyCode) {
 		case 38: str="Up"; break;
 		case 40: str="Down"; break;
-		case 37: str="Left"; break;
-		case 39: str="Right"; break;
 		default:
 			return;
 	}
