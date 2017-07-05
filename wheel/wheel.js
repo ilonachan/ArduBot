@@ -37,25 +37,25 @@ function Wheel(imageSource, axisX, axisY, options) {
 	
 	this.container = options.container ? options.container : document.createElement('div');
 	this.canvas = document.createElement('canvas');
-	container.className = canvas.className = 'wheel';
-	container.ondragstart = function () { return false; };
+	this.container.className = this.canvas.className = 'wheel';
+	this.container.ondragstart = function () { return false; };
 
 	// Ensure that the wheel axis is in the center
 	// of the canvas, so that rotation is done properly.
-	canvas.height = axisY * 2;
-	canvas.width = axisX * 2;
+	this.canvas.height = axisY * 2;
+	this.canvas.width = axisX * 2;
 
 	// Draw the wheel image to the canvas
 	this.image = new Image();
-	image.src = imageSource;
-	image.onload = function () {
-		const context = canvas.getContext('2d');
+	this.image.src = imageSource;
+	this.image.onload = function () {
+		const context = self.canvas.getContext('2d');
 		context.drawImage(this, 0, 0, this.width, this.height);
 	};
 
-	container.appendChild(canvas);
+	this.container.appendChild(canvas);
 	if (!options.container)
-		document.body.appendChild(container);
+		document.body.appendChild(this.container);
 
 	this.radius = options.radius;
 	this.onSteerFunc = options.onSteer;
