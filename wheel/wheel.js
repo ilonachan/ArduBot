@@ -34,7 +34,8 @@ function lerp(value1, value2, amount) {
  */
 function Wheel(imageSource, axisX, axisY, options) {
 	const self = this;
-
+	console.dir(self);
+	
 	const container = options.container ? options.container : document.createElement('div');
 	const canvas = document.createElement('canvas');
 	container.className = canvas.className = 'wheel';
