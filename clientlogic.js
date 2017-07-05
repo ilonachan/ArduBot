@@ -23,7 +23,7 @@ function createCORSRequest(method, url) {
 }
 
 function anfordern(mode) {
-	var req = createCorsRequest('GET',"http://"+document.getElementById("arduIP").value+"/request.php?comm="+mode);
+	var req = createCORSRequest('GET',"http://"+document.getElementById("arduIP").value+"/request.php?comm="+mode);
 	if(!xhr) {
 		console.err("CORS is not supported in your browser. That means this page can send no requests to "
 			    + "the robot as it is not to be found on the same domain. (Find out why at "
