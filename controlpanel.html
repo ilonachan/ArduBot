@@ -2,18 +2,19 @@
 <html>
 	<head>
 		<title>Arduino Control Panel</title>
-		<link rel="stylesheet" type="text/css" href="https://rawgit.com/thepikafan/ArduBot/master/arduino.css">
-		<link rel="stylesheet" type="text/css" href="https://rawgit.com/thepikafan/ArduBot/master/wheel/style.css">
-		<link rel="shortcut icon" href="https://rawgit.com/thepikafan/ArduBot/master/images/icon.png" type="image/x-icon" />
-		<script type="text/javascript" src="https://rawgit.com/thepikafan/ArduBot/master/wheel/vector.js"></script>
-		<script type="text/javascript" src="https://rawgit.com/thepikafan/ArduBot/master/wheel/wheel.js"></script>
-		<script type="text/javascript" src="https://rawgit.com/thepikafan/ArduBot/master/clientlogic.js"></script>
+		<link rel="stylesheet" type="text/css" href="arduino.css">
+		<link rel="stylesheet" type="text/css" href="wheel/style.css">
+		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+		<script type="text/javascript" src="wheel/vector.js"></script>
+		<script type="text/javascript" src="wheel/wheel.js"></script>
+		<script type="text/javascript" src="clientlogic.js"></script>
 	</head>
 	<body>
 		<h1>Arduino Cont<a title = "Der ger&auml;t wird nie m&uuml;de, der Ger&auml;t schl&auml;ft nie ein,
 		der Ger&auml;t ist noch vor der Chef im Gesch&auml;ft und schneidet das D&ouml;nerfleisch 
 		schweissfrei">r</a>ol Panel</h1>
-		<i><h2>Von hier aus k&ouml;nnen sie unseren Roboter steuern (hoffentlich irgendwann mal)</h2></i><hr>
+		<h2 id="textStatus">&nbsp;</h2>				
+		<h2 id="textFeedback">&nbsp;</h2><hr>
 		<button id="buttonSteerUp" class="Up" title="Vorw&auml;rts"
 		href="#" onmousedown="setDir('Up',1);" onmouseup="setDir('Up',0);"></button><br>
 		<!-- <button id="buttonSteerLeft" class="Left" title="Abbiegen Links" -->
@@ -22,13 +23,14 @@
 		<!-- href="#" onmousedown="setDir('Right',1);" onmouseup="setDir('Right',0);"></button><br> -->
 		<button id="buttonSteerDown" class="Down" title="R&uuml;ckw&auml;rts"
 		href="#" onmousedown="setDir('Down',1);" onmouseup="setDir('Down',0);"></button><br>
-		<br>
+		<input id="inputDisplayText" title="The Arduino displays this"></input>
+		<button onclick="submitDisplayText();">Submit</button>
 		<br><br>
 		<div style="text-align: center">
 		<div id="wheelContainer" class="wheel" style="display: inline-block"></div>
 		</div>
 		<script type="text/javascript">
-			const wheel = new Wheel("https://raw.githubusercontent.com/thepikafan/ArduBot/master/wheel/wheel.png",360,373,
+			const wheel = new Wheel("wheel/wheel.png",360,373,
 				{container:document.getElementById("wheelContainer"),
 					onSteer:function(e) {
 					if(e.angle < -40) {
@@ -45,9 +47,5 @@
 					}
 				},radius:183});
 		</script>
-		<br><br><br>
-		<input id="inputDisplayText" title="The Arduino displays this"></input>
-		<button onclick="submitDisplayText();">Submit</button>
-		<br><br>
 	</body>
 </html>

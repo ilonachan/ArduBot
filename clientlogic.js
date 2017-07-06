@@ -23,45 +23,49 @@ function createCORSRequest(method, url) {
 }
 
 function anfordern(mode) {
-	var req = createCORSRequest('GET',"http://"+document.getElementById("arduIP").value+"/request.php?comm="+mode);
-	if(!xhr) {
-		console.err("CORS is not supported in your browser. That means this page can send no requests to "
-			    + "the robot as it is not to be found on the same domain. (Find out why at "
-			    + "https://en.wikipedia.org/wiki/Same-origin_policy")
-	}
+	var req = new XMLHttpRequest();
+-	req.open("get", "request.php?comm="+mode, true);
 	req.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
 	// console.log("Sending request: 'request.php?comm="+mode+"'");
-	// if(mode == "refresh") {
-		// req.onreadystatechange = function(e){
-			// if(e.target.readyState == 4 && e.target.status == 200) {
+	if(mode == "refresh") {
+		req.onreadystatechange = function(e){
+			if(e.target.readyState == 4 && e.target.status == 200) {
 				// console.log(e.target.responseText);
-				// refreshView(e.target.responseText);
-			// }
-		// }
-	// } else {
+				refreshView(e.target.responseText);
+			}
+		}
+	} else {
 		req.onreadystatechange = auswerten;
-	// }
+	}
 	req.send();
 }
 
 function auswerten(e) {
 	if(e.target.readyState == 4 && e.target.status == 200)
-		console.log(e.target.responseText);
+		// console.log(e.target.responseText);
+		showCommandFeedback(e.target.responseText);
 }
 
 document.addEventListener("keydown", checkKeyDown);
 document.addEventListener("keyup", checkKeyUp);
 
-// setInterval(everySec,1000);
+setInterval(everySec,1000);
 
-// function refreshView(info){
-	// document.getElementById("idStatus").innerHtml = info;
-// }
+function refreshView(info){
+	document.getElementById("textStatus").innerHTML = info;
+}
+function showCommandFeedback(info){
+	document.getElementById("textFeedback").innerHTML = info;
+	
+	setTimeout(function() {
+		document.getElementById("textFeedback").innerHTML = "&nbsp;";
+	}, 1200);
+}
 
-// function everySec() {
-	// // console.log("refresing");
-	// anfordern("refresh");
-// }
+function everySec() {
+	// console.log("refresing");
+	anfordern("refresh");
+}
 
 var dirs = {
 	Up:0, Down:0, Left:0, Right:0
@@ -112,4 +116,8 @@ function checkKeyUp(e) {
 	}
 	document.getElementById("buttonSteer"+str).classList.remove("activate");
 	setDir(str,0);
+}
+
+function submitDisplayText() {
+	anfordern("display&setto="+document.getElementById("inputDisplayText").value);
 }
