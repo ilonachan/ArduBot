@@ -54,10 +54,16 @@ setInterval(everySec,1000);
 function refreshView(info){
 	document.getElementById("textStatus").innerHTML = info;
 }
+
+var timeoutDelText;
+
 function showCommandFeedback(info){
+	if(timeoutDelText)
+		clearTimeout(timeoutDelText)
+	
 	document.getElementById("textFeedback").innerHTML = info;
 	
-	setTimeout(function() {
+	timeoutDelText = setTimeout(function() {
 		document.getElementById("textFeedback").innerHTML = "&nbsp;";
 	}, 1200);
 }
